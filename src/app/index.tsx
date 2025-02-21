@@ -24,7 +24,14 @@ export default function Index() {
       <Link href={{ pathname: '/SignIn/signIn', params: { name: 'Notebook', id: 11 } }} asChild>
         <TouchableOpacity activeOpacity={0.7} style={styles.button}>
           <Text style={styles.title}>
-            Enviar parametro
+            Sign In
+          </Text>
+        </TouchableOpacity>
+      </Link>
+      <Link href={{ pathname: '/SignUp/signUp', params: { name: 'Notebook', id: 11 } }} asChild>
+        <TouchableOpacity activeOpacity={0.7} style={styles.button}>
+          <Text style={styles.title}>
+            Sign Up
           </Text>
         </TouchableOpacity>
       </Link>

@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import { styles } from './styles'
 
 export default function Settings(){
 
   return (
     <View style={styles.container}>
-      <Text>Home Page</Text>
+      <Text>Settings Page</Text>
     </View>
   )
 }

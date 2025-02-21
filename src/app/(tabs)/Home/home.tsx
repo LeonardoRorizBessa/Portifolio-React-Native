@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import { Redirect, useLocalSearchParams } from 'expo-router'
 import { styles } from './styles'
 
