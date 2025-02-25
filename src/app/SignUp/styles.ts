@@ -8,10 +8,4 @@ export const styles = StyleSheet.create({
     backgroundColor: 'lightpink',
     gap: 20,
   },
-  button: {
-
-  },
-  title: {
-
-  },
 })

@@ -1,40 +1,62 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import Logo from '../assets/react.png'
-import { Link } from 'expo-router'
+import React, { useState } from 'react'
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+} from 'react-native'
+import { Button } from '@/components/Button/Button'
+import { Input } from '@/components/Input/Input'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Index() {
+  const [isLoading, setIsLoading] = useState(false)
+
+  function handleButton(){
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.viewLogo}>
-        <Image 
-          source={Logo}
-          style={styles.logo}
-          resizeMode='contain'
+        <MaterialCommunityIcons 
+          name='react' 
+          size={100} 
+          color="blue"
         />
         <Text style={styles.titleLogo}>Welcome back</Text>
       </View>
-
-      <Link href='/(tabs)/Home/home' asChild>
-        <TouchableOpacity activeOpacity={0.7} style={styles.button}>
-          <Text style={styles.title}>
-            Entrar
-          </Text>
-        </TouchableOpacity>
-      </Link>
-      <Link href={{ pathname: '/SignIn/signIn', params: { name: 'Notebook', id: 11 } }} asChild>
-        <TouchableOpacity activeOpacity={0.7} style={styles.button}>
-          <Text style={styles.title}>
-            Sign In
-          </Text>
-        </TouchableOpacity>
-      </Link>
-      <Link href={{ pathname: '/SignUp/signUp', params: { name: 'Notebook', id: 11 } }} asChild>
-        <TouchableOpacity activeOpacity={0.7} style={styles.button}>
-          <Text style={styles.title}>
-            Sign Up
-          </Text>
-        </TouchableOpacity>
-      </Link>
+      <Button 
+        title='entrar'
+        isLoading={isLoading}
+        style={{ marginVertical: 20 }}
+        routeName='signIn'
+      />
+      <Button 
+        title='cadastrar'
+        isLoading={isLoading}
+        style={{ marginBottom: 20 }}
+        routeName='signUp'
+      />
+      <Button 
+        title='Home'
+        isLoading={isLoading}
+        style={{ marginBottom: 20 }}
+        routeName='home'
+        variant='outline'
+      />
+      <Input 
+        label='Email' 
+        placeHolder='email@gmail.com' 
+        iconName='email'
+      />
+      <Input 
+        label='Password' 
+        placeHolder='********' 
+        iconName='eye-off'
+      />
     </View>
   )
 }
@@ -46,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1c1c1c',
-    gap: 20,
+    padding: 32,
   },
   // View logo
   viewLogo: {
@@ -61,17 +83,5 @@ const styles = StyleSheet.create({
   titleLogo: {
     color: '#f1f1f1',
     fontSize: 24,
-  },
-  title: {
-    color: '#f1f1f1',
-    fontSize: 24,
-  },
-  button: {
-    backgroundColor: 'gray',
-    padding: 10,
-    borderRadius: 5,
-  },
-  parametro: {
-    color: 'white',
   },
 })
