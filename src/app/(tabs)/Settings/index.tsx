@@ -1,9 +1,9 @@
 import React from 'react'
 import { 
   View, 
-  Text 
+  Text,
+  StyleSheet,
 } from 'react-native'
-import { styles } from './styles'
 
 export default function Settings(){
 
@@ -13,3 +13,12 @@ export default function Settings(){
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#aa00a1'
+  },
+})

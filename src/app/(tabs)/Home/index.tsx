@@ -1,10 +1,10 @@
 import React from 'react'
 import { 
   View, 
-  Text 
+  Text,
+  StyleSheet,
 } from 'react-native'
 import { Redirect, useLocalSearchParams } from 'expo-router'
-import { styles } from './styles'
 
 export default function Home(){
   // const { id, name } = useLocalSearchParams()
@@ -21,3 +21,12 @@ export default function Home(){
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#a94323',
+  },
+})

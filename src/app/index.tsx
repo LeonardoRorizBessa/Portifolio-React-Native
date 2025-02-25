@@ -4,12 +4,21 @@ import {
   Text, 
   StyleSheet, 
 } from 'react-native'
+import { router } from 'expo-router'
 import { Button } from '@/components/Button/Button'
 import { Input } from '@/components/Input/Input'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Index() {
   const [isLoading, setIsLoading] = useState(false)
+
+  function handleNavigate(route: string){
+    if(route === '/(tabs)/Home'){
+      router.replace(route as any)
+    } else {
+      router.push(route as any)
+    }
+  }
 
   function handleButton(){
     setIsLoading(true)
@@ -32,19 +41,19 @@ export default function Index() {
         title='entrar'
         isLoading={isLoading}
         style={{ marginVertical: 20 }}
-        routeName='signIn'
+        onPress={() => handleNavigate('/SignIn/index')}
       />
       <Button 
         title='cadastrar'
         isLoading={isLoading}
         style={{ marginBottom: 20 }}
-        routeName='signUp'
+        onPress={() => handleNavigate('/SignUp/index')}
       />
       <Button 
         title='Home'
         isLoading={isLoading}
         style={{ marginBottom: 20 }}
-        routeName='home'
+        onPress={() => handleNavigate('/(tabs)/Home')}
         variant='outline'
       />
       <Input 

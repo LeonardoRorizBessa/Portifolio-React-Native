@@ -1,10 +1,9 @@
 import React from 'react'
 import { 
   View, 
-  Text 
+  Text,
+  StyleSheet,
 } from 'react-native'
-import { styles } from './styles'
-import { router } from 'expo-router'
 
 export default function SignUp(){
 
@@ -14,3 +13,13 @@ export default function SignUp(){
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'lightpink',
+    gap: 20,
+  },
+})
