@@ -12,7 +12,7 @@ interface Props {
   title: string;
   disable?: boolean;
   isLoading?: boolean;
-  variant?: 'primary' | 'outline';
+  variant?: 'primary' | 'secundary' | 'outlinePrimary' | 'outlineSecundary';
   style?: TouchableHighlightProps['style'];
   onPress?: () => void;
 }

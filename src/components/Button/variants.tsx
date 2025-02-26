@@ -1,3 +1,5 @@
+import { colors } from '../../styles/colors'
+
 export interface ButtonStyle {
   button: {
     backgroundColor: string;
@@ -17,46 +19,90 @@ export interface ButtonVariant {
 export const buttonPrimary: ButtonVariant = {
   enable: {
     button: {
-      backgroundColor: 'blue',
+      backgroundColor: colors.emerald,
     },
     title: {
-      color: 'white',
+      color: colors.white,
     },
   },
   disable: {
     button: {
-      backgroundColor: '#b8b8b8',
+      backgroundColor: colors.gray,
     },
     title: {
-      color: 'white',
+      color: colors.white,
     },
   },
 };
 
-export const buttonOutline: ButtonVariant = {
+export const buttonSecundary: ButtonVariant = {
+  enable: {
+    button: {
+      backgroundColor: colors.menta,
+    },
+    title: {
+      color: colors.grayDark,
+    },
+  },
+  disable: {
+    button: {
+      backgroundColor: colors.gray,
+    },
+    title: {
+      color: colors.white,
+    },
+  },
+};
+
+export const buttonOutlinePrimary: ButtonVariant = {
   enable: {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: 'blue',
+      borderColor: colors.menta,
     },
     title: {
-      color: 'blue',
+      color: colors.menta,
     },
   },
   disable: {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: '#b8b8b8',
+      borderColor: colors.gray,
     },
     title: {
-      color: '#b8b8b8',
+      color: colors.gray,
+    },
+  },
+};
+
+export const buttonOutlineSecundary: ButtonVariant = {
+  enable: {
+    button: {
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      borderColor: colors.emerald,
+    },
+    title: {
+      color: colors.emerald,
+    },
+  },
+  disable: {
+    button: {
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      borderColor: colors.gray,
+    },
+    title: {
+      color: colors.gray,
     },
   },
 };
 
 export const variants = {
   primary: buttonPrimary,
-  outline: buttonOutline,
+  secundary: buttonSecundary,
+  outlinePrimary: buttonOutlinePrimary,
+  outlineSecundary: buttonOutlineSecundary,
 }
