@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { 
   View, 
   Text,
@@ -9,14 +9,16 @@ import { colors } from '@/styles/colors'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window')
 
 export default function SignIn(){
+
   return (
     <View style={styles.container}>
       <View style={styles.boxTitle}>
         <Text style={styles.title}>Sign in!</Text>
       </View>
+
       <View style={styles.boxSignIn}>
         <View style={styles.boxForm}>
           <Input 
@@ -31,11 +33,18 @@ export default function SignIn(){
           />
           <Text style={styles.forgotPassword}>Forgot password?</Text>
         </View>
-        <View style={styles.boxButton}>
-          
-        </View>
-        <View style={styles.boxHasAccount}>
 
+        <View style={styles.boxButton}>
+          <Button 
+            title="Sign In"
+            variant="secundary" 
+            route='/Home'
+          />
+        </View>
+
+        <View style={styles.boxHasAccount}>
+          <Text style={styles.textHasAccount}>Don't have account?</Text>
+          <Text style={styles.linkSignUp}>Sign Up</Text>
         </View>
       </View>
     </View>
@@ -80,54 +89,61 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.grayDark,
-    paddingVertical: 32,
   },
   // Box Title
   boxTitle: {
-    paddingTop: 32,
-    height: height * 0.2,
+    paddingTop: width * 0.05,
+    height: height * 0.25,
     width: width * 0.9,
   },
   title: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 32,
   },
   // Box Sign In
   boxSignIn: {
     backgroundColor: colors.white,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    height: height * 0.8,
+    height: height * 0.75,
     width: width * 1,
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 50,
+    paddingTop: width * 0.1,
+    paddingBottom: width * 0.05,
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
   },
   // Box Form
   boxForm: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.4,
     width: width * 0.9,
     gap: 10,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
   },
-  // Box Form
+  // Box Button
   boxButton: {
-    backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.3,
     width: width * 0.9,
   },
-  // Box Form
+  // Box Account
   boxHasAccount: {
-    backgroundColor: 'pink',
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.1,
     width: width * 0.9,
+  },
+  textHasAccount: {
+    color: colors.gray,
+    alignSelf: 'flex-end',
+    fontSize: 12,
+  },
+  linkSignUp: {
+    color: colors.grayDark,
+    alignSelf: 'flex-end',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 })

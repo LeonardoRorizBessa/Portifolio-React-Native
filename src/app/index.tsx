@@ -1,94 +1,79 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { 
   View, 
   Text, 
-  StyleSheet,
+  StyleSheet, 
   Dimensions,
 } from 'react-native'
-import { router } from 'expo-router'
 import { Button } from '@/components/Button/Button'
 import { colors } from '@/styles/colors'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window')
 
 export default function Index() {
-  const [loadingButtons, setLoadingButtons] = useState<{ [key: string]: boolean }>({})
-
-  function handleNavigate(route: string, buttonKey: string){
-    setLoadingButtons(prevState => ({ ...prevState, [buttonKey]: true }))
-    setTimeout(() => {
-      if(route === '/(tabs)/Home'){
-        router.replace(route as any)
-      } else {
-        router.push(route as any)
-      }
-      setLoadingButtons(prevState => ({ ...prevState, [buttonKey]: false }))
-    }, 3000)
-  }
 
   return (
     <View style={styles.container}>
       <View style={styles.boxLogo}>
         <MaterialCommunityIcons 
-          name='react' 
+          name="react" 
           size={120} 
-          color={colors.menta}
+          color={colors.menta} 
         />
         <Text style={styles.textWelcome}>Welcome Back</Text>
       </View>
+
       <View style={styles.boxButtons}>
         <Button 
-          title='sign in'
-          isLoading={loadingButtons['signIn']}
-          variant='outlinePrimary'
-          onPress={() => handleNavigate('/SignIn', 'signIn')}
+          title="Sign In"
+          variant="outlinePrimary" 
+          route='/SignIn'
         />
         <Button 
-          title='sign up'
-          isLoading={loadingButtons['signUp']}
-          variant='secundary'
-          onPress={() => handleNavigate('/SignUp', 'signUp')}
+          title="Sign Up"
+          variant="secundary" 
+          route='/SignUp'
         />
       </View>
+
       <View style={styles.boxSocial}>
         <Text style={styles.textSocial}>Visit my Social Media</Text>
         <View style={styles.boxMedias}>
           <MaterialCommunityIcons 
-            name='instagram' 
+            name="instagram" 
             size={30} 
-            color={colors.menta}
+            color={colors.menta} 
           />
           <MaterialCommunityIcons 
-            name='linkedin' 
+            name="linkedin" 
             size={30} 
-            color={colors.menta}
+            color={colors.menta} 
           />
           <MaterialCommunityIcons 
-            name='github' 
+            name="github" 
             size={30} 
-            color={colors.menta}
+            color={colors.menta} 
           />
         </View>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   // Container
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#1c1c1c',
-    paddingVertical: 32,
+    backgroundColor: colors.grayDark,
   },
-  // Box Logo
+  //Box Logo
   boxLogo: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.45,
+    paddingTop: width * 0.25,
     width: width * 0.9,
     gap: 20,
   },
@@ -101,26 +86,24 @@ const styles = StyleSheet.create({
   boxButtons: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.4,
     width: width * 0.9,
-    padding: 20,
-    gap: 30,
+    gap: 20,
   },
   // Box Social Media
   boxSocial: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: height * 0.15,
     width: width * 0.9,
+    paddingBottom: width * 0.05,
     gap: 10,
   },
   textSocial: {
-    color: '#fff',
-    fontWeight: 'semibold',
+    color: colors.white,
+    fontWeight: '600',
     fontSize: 14,
   },
   boxMedias: {
     flexDirection: 'row',
-    gap: 10,
-  }
-})
+    gap: 15,
+  },
+});

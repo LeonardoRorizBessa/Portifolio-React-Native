@@ -1,47 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { 
   TouchableOpacity, 
   Text, 
   StyleSheet,
   ActivityIndicator,
   TouchableHighlightProps,
-} from 'react-native'
-import { variants } from './variants'
+} from 'react-native';
+import { useRouter } from 'expo-router';
+import { variants } from './variants';
 
 interface Props {
   title: string;
+  route: string;
   disable?: boolean;
-  isLoading?: boolean;
   variant?: 'primary' | 'secundary' | 'outlinePrimary' | 'outlineSecundary';
   style?: TouchableHighlightProps['style'];
-  onPress?: () => void;
 }
 
 export function Button({ 
   title, 
-  onPress, 
+  route, 
   disable, 
   style,
-  isLoading = false,
   variant = 'primary',
-}: Props){
-  const ButtonVariant = variants[variant]
-  const buttonStyle = disable ? ButtonVariant.disable : ButtonVariant.enable
+}: Props) {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  
+  const handleNavigate = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      if(route === '/Home'){
+        router.replace(route as any)
+      } else {
+        router.push(route as any)
+      }
+      setIsLoading(false)
+    }, 300)
+  };
+
+  const ButtonVariant = variants[variant];
+  const buttonStyle = disable ? ButtonVariant.disable : ButtonVariant.enable;
 
   return (
     <TouchableOpacity 
       activeOpacity={0.8} 
       disabled={isLoading || disable}
       style={[styles.button, { ...buttonStyle.button }, style]} 
-      onPress={onPress}
+      onPress={handleNavigate}
     >
-      {isLoading? 
+      {isLoading ? 
         <ActivityIndicator color={buttonStyle.title.color}/> 
         : 
         <Text style={[styles.buttonText, { color: buttonStyle.title.color }]}>{title}</Text>
       }
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -58,4 +72,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   }
-})
+});
