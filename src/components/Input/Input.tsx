@@ -5,6 +5,7 @@ import {
   StyleSheet, 
   Text 
 } from 'react-native'
+import { colors } from '../../styles/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface Props {
@@ -22,7 +23,7 @@ export function Input({ label, placeHolder, iconName }: Props){
         <MaterialCommunityIcons 
           name={iconName} 
           size={20} 
-          color="gray" 
+          color={colors.gray} 
           style={styles.icon} 
         />
       </View>
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   labelInput: {
     fontSize: 14,
-    color: 'blue',
+    color: colors.menta,
   },
   viewInput: {
     justifyContent: 'center',
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderBottomWidth: 1,
     fontSize: 14,
-    borderColor: 'gray',
-    color: 'gray',
+    borderColor: colors.gray,
+    color: colors.gray,
   },
   icon: {
     position: 'absolute',

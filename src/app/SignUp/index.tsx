@@ -9,7 +9,7 @@ export default function SignUp(){
 
   return (
     <View style={styles.container}>
-      <Text>Sign Up Page</Text>
+
     </View>
   )
 }
