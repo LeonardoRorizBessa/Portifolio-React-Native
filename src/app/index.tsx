@@ -8,6 +8,7 @@ import {
 import { Button } from '@/components/Button/Button'
 import { colors } from '@/styles/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { SocialButton } from '@/components/SocialButton/SocialButton'
 
 const { width, height } = Dimensions.get('window')
 
@@ -17,8 +18,8 @@ export default function Index() {
     <View style={styles.container}>
       <View style={styles.boxLogo}>
         <MaterialCommunityIcons 
-          name="react" 
-          size={120} 
+          name="application-brackets-outline" 
+          size={110} 
           color={colors.menta} 
         />
         <Text style={styles.textWelcome}>Welcome Back</Text>
@@ -40,20 +41,23 @@ export default function Index() {
       <View style={styles.boxSocial}>
         <Text style={styles.textSocial}>Visit my Social Media</Text>
         <View style={styles.boxMedias}>
-          <MaterialCommunityIcons 
-            name="instagram" 
-            size={30} 
-            color={colors.menta} 
+          <SocialButton 
+            iconName='instagram'
+            size={30}
+            color={colors.menta}
+            url='https://www.instagram.com/leonardororiz/'
           />
-          <MaterialCommunityIcons 
-            name="linkedin" 
-            size={30} 
-            color={colors.menta} 
+          <SocialButton 
+            iconName='linkedin'
+            size={30}
+            color={colors.menta}
+            url='https://www.linkedin.com/in/leonardorbessa/'
           />
-          <MaterialCommunityIcons 
-            name="github" 
-            size={30} 
-            color={colors.menta} 
+          <SocialButton 
+            iconName='github'
+            size={30}
+            color={colors.menta}
+            url='https://github.com/LeonardoRorizBessa'
           />
         </View>
       </View>
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   textWelcome: {
-    color: 'white',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 24,
   },

@@ -48,37 +48,6 @@ export default function SignIn(){
         </View>
       </View>
     </View>
-
-
-    // <View>
-    //   <View style={styles.viewLogo}>
-    //     <MaterialCommunityIcons 
-    //       name='react' 
-    //       size={100} 
-    //       color="blue"
-    //     />
-    //     <Text style={styles.titleLogo}>Welcome back</Text>
-    //   </View>
-    //   <Button 
-    //     title='entrar'
-    //     isLoading={isLoading}
-    //     style={{ marginVertical: 20 }}
-    //     onPress={() => handleNavigate('/SignIn')}
-    //   />
-    //   <Button 
-    //     title='cadastrar'
-    //     isLoading={isLoading}
-    //     style={{ marginBottom: 20 }}
-    //     onPress={() => handleNavigate('/SignUp')}
-    //   />
-    //   <Button 
-    //     title='Home'
-    //     isLoading={isLoading}
-    //     style={{ marginBottom: 20 }}
-    //     onPress={() => handleNavigate('/(tabs)/Home')}
-    //     variant='outline'
-    //   />
-    // </View>
   )
 }
 

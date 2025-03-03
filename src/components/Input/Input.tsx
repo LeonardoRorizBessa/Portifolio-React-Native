@@ -14,7 +14,11 @@ interface Props {
   iconName?: keyof typeof MaterialCommunityIcons.glyphMap;
 }
 
-export function Input({ label, placeHolder, iconName }: Props){
+export function Input({ 
+  label, 
+  placeHolder, 
+  iconName,
+}: Props){
   return (
     <View style={styles.container}>
       <Text style={styles.labelInput}>{label}</Text>
