@@ -1,50 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   View, 
   Text,
   StyleSheet,
   Dimensions,
 } from 'react-native'
+import { Link, useRouter } from 'expo-router'
 import { colors } from '@/styles/colors'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
+import { BackButton } from '@/components/BackButton/BackButton'
 
 const { width, height } = Dimensions.get('window')
 
-export default function SignIn(){
+export default function SignUp(){
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const router = useRouter();
+
+  const handleSignUp = () => {
+    setLoading(true);
+    console.log({ name, email, password, confirmPassword });
+    setLoading(false);
+    router.push('/');
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.boxTitle}>
-        <Text style={styles.title}>Sign in!</Text>
+        <BackButton 
+          iconName='arrow-left'
+          color={colors.white}
+          size={30}
+        />
+        <Text style={styles.title}>Sign Up!</Text>
       </View>
 
-      <View style={styles.boxSignIn}>
+      <View style={styles.boxSignUp}>
         <View style={styles.boxForm}>
+          <Input 
+            label='Full Name' 
+            placeHolder='Full Name' 
+            iconName='account'
+            value={name}
+            onChangeText={setName}
+          />
           <Input 
             label='Email' 
             placeHolder='email@gmail.com' 
             iconName='email'
+            value={email}
+            onChangeText={setEmail}
           />
           <Input 
             label='Password' 
             placeHolder='********' 
             iconName='eye-off'
+            value={password}
+            onChangeText={setPassword}
+            password={true}
           />
-          <Text style={styles.forgotPassword}>Forgot password?</Text>
+          <Input 
+            label='Confirm Password' 
+            placeHolder='********' 
+            iconName='eye-off'
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            password={true}
+          />
         </View>
 
         <View style={styles.boxButton}>
           <Button 
-            title="Sign In"
-            variant="secundary" 
-            route='/Home'
+            title="Sign Up" 
+            variant="secundary"
+            onPress={handleSignUp}
+            disable={loading}
           />
         </View>
 
         <View style={styles.boxHasAccount}>
-          <Text style={styles.textHasAccount}>Don't have account?</Text>
-          <Text style={styles.linkSignUp}>Sign Up</Text>
+          <Text style={styles.textHasAccount}>Already have an account?</Text>
+          <Link href='/(auth)/SignIn' style={styles.linkSignIn}>
+            <Text style={styles.textSignIn}>Sign In</Text>
+          </Link>
         </View>
       </View>
     </View>
@@ -61,17 +103,18 @@ const styles = StyleSheet.create({
   },
   // Box Title
   boxTitle: {
-    paddingTop: width * 0.05,
+    paddingVertical: width * 0.05,
     height: height * 0.25,
     width: width * 0.9,
   },
   title: {
+    alignSelf: 'center',
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 32,
   },
-  // Box Sign In
-  boxSignIn: {
+  // Box Sign Up
+  boxSignUp: {
     backgroundColor: colors.white,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -88,9 +131,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: width * 0.9,
     gap: 10,
-  },
-  forgotPassword: {
-    alignSelf: 'flex-end',
   },
   // Box Button
   boxButton: {
@@ -109,9 +149,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     fontSize: 12,
   },
-  linkSignUp: {
-    color: colors.grayDark,
+  linkSignIn: {
     alignSelf: 'flex-end',
+  },
+  textSignIn: {
+    color: colors.grayDark,
     fontWeight: 'bold',
     fontSize: 16,
   },

@@ -10,7 +10,7 @@ import { colors } from '@/styles/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { SocialButton } from '@/components/SocialButton/SocialButton'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 export default function Index() {
 
@@ -29,12 +29,12 @@ export default function Index() {
         <Button 
           title="Sign In"
           variant="outlinePrimary" 
-          route='/SignIn'
+          route='/(auth)/SignIn'
         />
         <Button 
           title="Sign Up"
-          variant="secundary" 
-          route='/SignUp'
+          variant="secundary"
+          route='/(auth)/SignUp'
         />
       </View>
 

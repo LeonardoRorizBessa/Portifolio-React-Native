@@ -1,59 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   View, 
   Text,
   StyleSheet,
   Dimensions,
 } from 'react-native'
+import { Link, useRouter } from 'expo-router'
 import { colors } from '@/styles/colors'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
+import { BackButton } from '@/components/BackButton/BackButton'
 
 const { width, height } = Dimensions.get('window')
 
-export default function SignUp(){
+export default function SignIn(){
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const router = useRouter();
+
+  const handleSignIn = () => {
+    setLoading(true);
+    console.log({ email, password });
+    setLoading(false);
+    router.push('/Home');
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.boxTitle}>
-        <Text style={styles.title}>Sign Up!</Text>
+        <BackButton 
+          iconName='arrow-left'
+          color={colors.white}
+          size={30}
+        />
+        <Text style={styles.title}>Sign in!</Text>
       </View>
 
-      <View style={styles.boxSignUp}>
+      <View style={styles.boxSignIn}>
         <View style={styles.boxForm}>
-          <Input 
-            label='Full Name' 
-            placeHolder='Full Name' 
-            iconName='account'
-          />
           <Input 
             label='Email' 
             placeHolder='email@gmail.com' 
             iconName='email'
+            value={email}
+            onChangeText={setEmail}
           />
           <Input 
             label='Password' 
             placeHolder='********' 
             iconName='eye-off'
+            value={password}
+            onChangeText={setPassword}
+            password={true}
           />
-          <Input 
-            label='Confirm Password' 
-            placeHolder='********' 
-            iconName='eye-off'
-          />
+          <Text style={styles.forgotPassword}>Forgot password?</Text>
         </View>
 
         <View style={styles.boxButton}>
           <Button 
-            title="Sign Up" 
-            variant="secundary" 
-            route='/'
+            title="Sign In"
+            variant="secundary"
+            onPress={handleSignIn}
+            disable={loading}
           />
         </View>
 
         <View style={styles.boxHasAccount}>
-          <Text style={styles.textHasAccount}>Already have an account?</Text>
-          <Text style={styles.linkSignUp}>Sign In</Text>
+          <Text style={styles.textHasAccount}>Don't have account?</Text>
+          <Link href='/(auth)/SignUp' style={styles.linkSignUp}>
+            <Text style={styles.textSignUp}>Sign Up</Text>
+          </Link>
         </View>
       </View>
     </View>
@@ -70,17 +87,18 @@ const styles = StyleSheet.create({
   },
   // Box Title
   boxTitle: {
-    paddingVertical: width * 0.05,
+    paddingTop: width * 0.05,
     height: height * 0.25,
     width: width * 0.9,
   },
   title: {
+    alignSelf: 'center',
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 32,
   },
-  // Box Sign Up
-  boxSignUp: {
+  // Box Sign In
+  boxSignIn: {
     backgroundColor: colors.white,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -97,6 +115,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: width * 0.9,
     gap: 10,
+  },
+  forgotPassword: {
+    alignSelf: 'flex-end',
   },
   // Box Button
   boxButton: {
@@ -116,8 +137,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   linkSignUp: {
-    color: colors.grayDark,
     alignSelf: 'flex-end',
+  },
+  textSignUp: {
+    color: colors.grayDark,
     fontWeight: 'bold',
     fontSize: 16,
   },

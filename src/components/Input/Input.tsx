@@ -11,25 +11,39 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 interface Props {
   label?: string;
   placeHolder?: string;
+  password?: boolean,
+  value: string;
+  onChangeText: (text: string) => void;
   iconName?: keyof typeof MaterialCommunityIcons.glyphMap;
 }
 
 export function Input({ 
   label, 
-  placeHolder, 
+  placeHolder,
+  password = false,
+  value,
+  onChangeText,
   iconName,
 }: Props){
   return (
     <View style={styles.container}>
-      <Text style={styles.labelInput}>{label}</Text>
+      {label && <Text style={styles.labelInput}>{label}</Text>}
       <View style={styles.viewInput}>
-        <TextInput style={styles.input} placeholder={placeHolder}/>
-        <MaterialCommunityIcons 
-          name={iconName} 
-          size={20} 
-          color={colors.gray} 
-          style={styles.icon} 
+        <TextInput 
+          style={styles.input} 
+          placeholder={placeHolder}
+          secureTextEntry={password}
+          value={value}
+          onChangeText={onChangeText}
         />
+        {iconName && (
+          <MaterialCommunityIcons 
+            name={iconName} 
+            size={20} 
+            color={colors.gray} 
+            style={styles.icon} 
+          />
+        )}
       </View>
     </View>
   )
@@ -53,7 +67,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     fontSize: 14,
     borderColor: colors.gray,
-    color: colors.gray,
+    color: colors.grayDark,
   },
   icon: {
     position: 'absolute',
