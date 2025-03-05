@@ -1,0 +1,3 @@
+export const supaUrl = 'https://ljzkcasetyyuobanipya.supabase.co'
+
+export const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqemtjYXNldHl5dW9iYW5pcHlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDExMTk3NjUsImV4cCI6MjA1NjY5NTc2NX0.rd_Ge3OQXeRuWQjMDK5glaTNQXcREA-VDf6x3rhn2Wk'

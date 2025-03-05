@@ -4,12 +4,16 @@ import {
   Text,
   StyleSheet,
   Dimensions,
+  Alert,
+  SafeAreaView,
+  ScrollView,
 } from 'react-native'
 import { Link, useRouter } from 'expo-router'
 import { colors } from '@/styles/colors'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
 import { BackButton } from '@/components/BackButton/BackButton'
+import { supabase } from '@/lib/supabase'
 
 const { width, height } = Dimensions.get('window')
 
@@ -19,61 +23,76 @@ export default function SignIn(){
   const [loading, setLoading] = useState(false)
   const router = useRouter();
 
-  const handleSignIn = () => {
-    setLoading(true);
-    console.log({ email, password });
-    setLoading(false);
-    router.push('/Home');
+  async function handleSignIn() {
+    setLoading(true)
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+
+    if(error){
+      Alert.alert('Error', error.message)
+      setLoading(false)
+      return
+    }
+
+    setLoading(false)
+    router.replace('/(tabs)/Home');
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.boxTitle}>
-        <BackButton 
-          iconName='arrow-left'
-          color={colors.white}
-          size={30}
-        />
-        <Text style={styles.title}>Sign in!</Text>
-      </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={styles.container}>
+          <View style={styles.boxTitle}>
+            <BackButton 
+              iconName='arrow-left'
+              color={colors.white}
+              size={30}
+            />
+            <Text style={styles.title}>Sign in!</Text>
+          </View>
 
-      <View style={styles.boxSignIn}>
-        <View style={styles.boxForm}>
-          <Input 
-            label='Email' 
-            placeHolder='email@gmail.com' 
-            iconName='email'
-            value={email}
-            onChangeText={setEmail}
-          />
-          <Input 
-            label='Password' 
-            placeHolder='********' 
-            iconName='eye-off'
-            value={password}
-            onChangeText={setPassword}
-            password={true}
-          />
-          <Text style={styles.forgotPassword}>Forgot password?</Text>
-        </View>
+          <View style={styles.boxSignIn}>
+            <View style={styles.boxForm}>
+              <Input 
+                label='Email' 
+                placeHolder='email@gmail.com' 
+                iconName='email'
+                value={email}
+                onChangeText={setEmail}
+              />
+              <Input 
+                label='Password' 
+                placeHolder='********' 
+                iconName='eye-off'
+                value={password}
+                onChangeText={setPassword}
+                password={true}
+              />
+              <Text style={styles.forgotPassword}>Forgot password?</Text>
+            </View>
 
-        <View style={styles.boxButton}>
-          <Button 
-            title="Sign In"
-            variant="secundary"
-            onPress={handleSignIn}
-            disable={loading}
-          />
-        </View>
+            <View style={styles.boxButton}>
+              <Button 
+                title="Sign In"
+                variant="secundary"
+                onPress={handleSignIn}
+                loading={loading}
+              />
+            </View>
 
-        <View style={styles.boxHasAccount}>
-          <Text style={styles.textHasAccount}>Don't have account?</Text>
-          <Link href='/(auth)/SignUp' style={styles.linkSignUp}>
-            <Text style={styles.textSignUp}>Sign Up</Text>
-          </Link>
+            <View style={styles.boxHasAccount}>
+              <Text style={styles.textHasAccount}>Don't have account?</Text>
+              <Link href='/(auth)/SignUp' style={styles.linkSignUp}>
+                <Text style={styles.textSignUp}>Sign Up</Text>
+              </Link>
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 

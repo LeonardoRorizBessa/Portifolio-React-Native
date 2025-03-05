@@ -4,9 +4,11 @@ import {
   Text, 
   StyleSheet,
   TouchableHighlightProps,
+  ActivityIndicator,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { variants } from './variants';
+import { colors } from '@/styles/colors';
 
 interface Props {
   title: string;
@@ -15,6 +17,7 @@ interface Props {
   variant?: 'primary' | 'secundary' | 'outlinePrimary' | 'outlineSecundary';
   style?: TouchableHighlightProps['style'];
   onPress?: () => void;
+  loading?: boolean;
 }
 
 export function Button({ 
@@ -24,6 +27,7 @@ export function Button({
   style,
   variant = 'primary',
   onPress,
+  loading = false,
 }: Props) {
   const router = useRouter();
   
@@ -41,11 +45,15 @@ export function Button({
   return (
     <TouchableOpacity 
       activeOpacity={0.8} 
-      disabled={disable}
+      disabled={disable || loading}
       style={[styles.button, { ...buttonStyle.button }, style]} 
       onPress={handleNavigate}
     >
-      <Text style={[styles.buttonText, { color: buttonStyle.title.color }]}>{title}</Text>
+      {loading ? (
+        <ActivityIndicator color={buttonStyle.title.color} />
+      ) : (
+        <Text style={[styles.buttonText, { color: buttonStyle.title.color }]}>{title}</Text>
+      )}
     </TouchableOpacity>
   );
 }
