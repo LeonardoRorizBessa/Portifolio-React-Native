@@ -13,9 +13,14 @@ export default function TabsLayout() {
       headerShown: false,
       tabBarShowLabel: false,
       tabBarStyle: {
-        backgroundColor: colors.grayDark,
+        backgroundColor: colors.black,
         height: height * 0.07,
-        borderColor: colors.grayDark,
+        borderColor: colors.black,
+        shadowColor: colors.white,
+        shadowOffset: { width: 0, height: -5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
+        elevation: 10,
       },
       tabBarIconStyle: {
         alignItems: 'center',
@@ -28,7 +33,7 @@ export default function TabsLayout() {
           tabBarIcon: () => (
             <MaterialCommunityIcons 
               name="home" 
-              color={colors.menta} 
+              color={colors.orange} 
               size={30} 
             />
           ),
@@ -40,7 +45,7 @@ export default function TabsLayout() {
           tabBarIcon: () => (
             <MaterialCommunityIcons 
               name="cog" 
-              color={colors.menta} 
+              color={colors.orange} 
               size={30}
             />
           ),

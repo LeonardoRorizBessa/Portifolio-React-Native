@@ -2,25 +2,25 @@ import React from 'react'
 import { 
   View, 
   Text, 
+  Image,
   StyleSheet, 
   Dimensions,
 } from 'react-native'
 import { Button } from '@/components/Button/Button'
 import { colors } from '@/styles/colors'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import Logo from '@/assets/logo.png'
 import { SocialButton } from '@/components/SocialButton/SocialButton'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 export default function Index() {
 
   return (
     <View style={styles.container}>
       <View style={styles.boxLogo}>
-        <MaterialCommunityIcons 
-          name="application-brackets-outline" 
-          size={110} 
-          color={colors.menta} 
+        <Image 
+          source={Logo} 
+          style={styles.logo} 
         />
         <Text style={styles.textWelcome}>Welcome Back</Text>
       </View>
@@ -44,19 +44,19 @@ export default function Index() {
           <SocialButton 
             iconName='instagram'
             size={30}
-            color={colors.menta}
+            color={colors.orange}
             url='https://www.instagram.com/leonardororiz/'
           />
           <SocialButton 
             iconName='linkedin'
             size={30}
-            color={colors.menta}
+            color={colors.orange}
             url='https://www.linkedin.com/in/leonardorbessa/'
           />
           <SocialButton 
             iconName='github'
             size={30}
-            color={colors.menta}
+            color={colors.orange}
             url='https://github.com/LeonardoRorizBessa'
           />
         </View>
@@ -69,17 +69,22 @@ const styles = StyleSheet.create({
   // Container
   container: {
     flex: 1,
+    width: width,
+    height: height,
     justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: colors.grayDark,
+    padding: 16,
+    backgroundColor: colors.black,
   },
   //Box Logo
   boxLogo: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: width * 0.25,
-    width: width * 0.9,
     gap: 20,
+  },
+  logo: {
+    width: 100,
+    height: 100,
   },
   textWelcome: {
     color: colors.white,
@@ -90,15 +95,12 @@ const styles = StyleSheet.create({
   boxButtons: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.9,
     gap: 20,
   },
   // Box Social Media
   boxSocial: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: width * 0.9,
-    paddingBottom: width * 0.05,
     gap: 10,
   },
   textSocial: {

@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import { router } from 'expo-router'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { colors } from '@/styles/colors';
 
 interface Props {
   iconName: keyof typeof MaterialCommunityIcons.glyphMap;
@@ -36,7 +37,7 @@ export function BackButton({
 
 const styles = StyleSheet.create({
   backButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: colors.orange,
     alignSelf: 'flex-start',
     padding: 8,
     borderRadius: 8,

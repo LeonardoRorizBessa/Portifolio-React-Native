@@ -1,7 +1,11 @@
+import React, { useEffect } from 'react'
+import { 
+  StatusBar,
+} from 'react-native'
 import { router, Stack } from 'expo-router'
 import { AuthProvider, useAuth } from '@/contexts/AuthContext'
-import { useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
+import { colors } from '@/styles/colors'
 
 export default function RootLayout() {
   return(
@@ -28,11 +32,17 @@ function MainLayout() {
   }, [])
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='index' />
-      <Stack.Screen name='(auth)/Welcome/index' />
-      <Stack.Screen name='(auth)/SignIn/index' />
-      <Stack.Screen name='(auth)/SignUp/index' />
-    </Stack>
+    <>
+      <StatusBar 
+        barStyle="light-content"
+        backgroundColor={colors.black}
+      />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='index' />
+        <Stack.Screen name='(auth)/Welcome/index' />
+        <Stack.Screen name='(auth)/SignIn/index' />
+        <Stack.Screen name='(auth)/SignUp/index' />
+      </Stack>
+    </>
   )
 }

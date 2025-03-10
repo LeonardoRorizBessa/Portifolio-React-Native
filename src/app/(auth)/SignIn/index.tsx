@@ -48,7 +48,7 @@ export default function SignIn(){
           <View style={styles.boxTitle}>
             <BackButton 
               iconName='arrow-left'
-              color={colors.white}
+              color={colors.black}
               size={30}
             />
             <Text style={styles.title}>Sign in!</Text>
@@ -100,15 +100,15 @@ const styles = StyleSheet.create({
   // Container
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.grayDark,
+    width: width,
+    height: height,
+    justifyContent: 'space-between',
+    backgroundColor: colors.black,
   },
   // Box Title
   boxTitle: {
-    paddingTop: width * 0.05,
-    height: height * 0.25,
-    width: width * 0.9,
+    height: height * 0.3,
+    padding: 16,
   },
   title: {
     alignSelf: 'center',
@@ -118,13 +118,12 @@ const styles = StyleSheet.create({
   },
   // Box Sign In
   boxSignIn: {
+    flex: 1,
     backgroundColor: colors.white,
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: height * 0.75,
-    width: width * 1,
-    paddingTop: width * 0.1,
-    paddingBottom: width * 0.05,
+    paddingTop: 32,
+    paddingBottom: 16,
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
   },
@@ -137,6 +136,7 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     alignSelf: 'flex-end',
+    color: colors.black,
   },
   // Box Button
   boxButton: {
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     width: width * 0.9,
   },
   textHasAccount: {
-    color: colors.gray,
+    color: colors.darkGray,
     alignSelf: 'flex-end',
     fontSize: 12,
   },
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   textSignUp: {
-    color: colors.grayDark,
+    color: colors.orange,
     fontWeight: 'bold',
     fontSize: 16,
   },

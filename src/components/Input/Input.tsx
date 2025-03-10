@@ -40,7 +40,7 @@ export function Input({
           <MaterialCommunityIcons 
             name={iconName} 
             size={20} 
-            color={colors.gray} 
+            color={colors.darkGray} 
             style={styles.icon} 
           />
         )}
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   labelInput: {
     fontSize: 14,
-    color: colors.menta,
+    color: colors.orange,
   },
   viewInput: {
     justifyContent: 'center',
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderBottomWidth: 1,
     fontSize: 14,
-    borderColor: colors.gray,
-    color: colors.grayDark,
+    borderColor: colors.darkGray,
+    color: colors.darkGray,
   },
   icon: {
     position: 'absolute',

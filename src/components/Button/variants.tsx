@@ -19,7 +19,7 @@ export interface ButtonVariant {
 export const buttonPrimary: ButtonVariant = {
   enable: {
     button: {
-      backgroundColor: colors.emerald,
+      backgroundColor: colors.orange,
     },
     title: {
       color: colors.white,
@@ -27,7 +27,7 @@ export const buttonPrimary: ButtonVariant = {
   },
   disable: {
     button: {
-      backgroundColor: colors.gray,
+      backgroundColor: colors.lightGray,
     },
     title: {
       color: colors.white,
@@ -38,15 +38,15 @@ export const buttonPrimary: ButtonVariant = {
 export const buttonSecundary: ButtonVariant = {
   enable: {
     button: {
-      backgroundColor: colors.menta,
+      backgroundColor: colors.orange,
     },
     title: {
-      color: colors.grayDark,
+      color: colors.black,
     },
   },
   disable: {
     button: {
-      backgroundColor: colors.gray,
+      backgroundColor: colors.lightGray,
     },
     title: {
       color: colors.white,
@@ -59,20 +59,20 @@ export const buttonOutlinePrimary: ButtonVariant = {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: colors.menta,
+      borderColor: colors.orange,
     },
     title: {
-      color: colors.menta,
+      color: colors.orange,
     },
   },
   disable: {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: colors.gray,
+      borderColor: colors.lightGray,
     },
     title: {
-      color: colors.gray,
+      color: colors.lightGray,
     },
   },
 };
@@ -82,20 +82,20 @@ export const buttonOutlineSecundary: ButtonVariant = {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: colors.emerald,
+      borderColor: colors.orange,
     },
     title: {
-      color: colors.emerald,
+      color: colors.orange,
     },
   },
   disable: {
     button: {
       backgroundColor: 'transparent',
       borderWidth: 2,
-      borderColor: colors.gray,
+      borderColor: colors.lightGray,
     },
     title: {
-      color: colors.gray,
+      color: colors.lightGray,
     },
   },
 };

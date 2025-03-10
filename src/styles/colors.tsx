@@ -1,7 +1,8 @@
 export const colors = {
-  grayDark: '#1c1c1c',
-  gray: '#b8b8b8',
-  menta: '#50E3C2',
+  black: '#1c1c1c',
+  darkGray: '#4d4d4d',
+  lightGray: '#cccccc',
   white: '#f1f1f1',
-  emerald: '#4CAF50',
+  orange: '#ff8c00',
+  darkOrange: '#ff5e00',
 }
