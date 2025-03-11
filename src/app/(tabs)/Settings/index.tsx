@@ -3,18 +3,18 @@ import {
   View, 
   Text,
   StyleSheet,
-  Button,
   Alert,
   Dimensions,
 } from 'react-native'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
 import { colors } from '@/styles/colors'
+import { SettingsOptions } from '@/components/SettingsOptions/SettingsOptions'
 
 const { width, height } = Dimensions.get('window')
 
 export default function Settings(){
-  const { setAuth, user } = useAuth()
+  const { setAuth } = useAuth()
 
   async function handleSignout(){
     const { error } = await supabase.auth.signOut()
@@ -28,11 +28,27 @@ export default function Settings(){
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Settings Page</Text>
-      <Button 
-        title='Sair'
-        onPress={handleSignout}
-      />
+      <View style={styles.boxTitle}>
+        <Text style={styles.title}>Settings</Text>
+      </View>
+      <View>
+        <SettingsOptions 
+          name='Account'
+          iconLeft='account'
+          iconRight='keyboard-arrow-right'
+        />
+        <SettingsOptions 
+          name='Notifications'
+          iconLeft='bell-outline'
+          iconRight='keyboard-arrow-right'
+        />
+        <SettingsOptions 
+          name='Logout'
+          iconLeft='logout'
+          iconRight='keyboard-arrow-right'
+          onPress={handleSignout}
+        />
+      </View>
     </View>
   )
 }
@@ -46,7 +62,13 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: colors.black,
   },
-  text: {
+  // Box Title
+  boxTitle: {
+    marginBottom: 16,
+  },
+  title: {
     color: colors.white,
-  }
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 })

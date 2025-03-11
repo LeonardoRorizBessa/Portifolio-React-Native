@@ -1,5 +1,8 @@
 import React from 'react'
-import { Dimensions } from 'react-native'
+import { 
+  Dimensions, 
+  Pressable,
+} from 'react-native'
 import { Tabs } from 'expo-router'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { colors } from '@/styles/colors'
@@ -25,6 +28,17 @@ export default function TabsLayout() {
         alignItems: 'center',
         justifyContent: 'center',
       },
+      tabBarButton: (props) => (
+        <Pressable
+          {...props}
+          style={({ pressed }) => [
+            {
+              opacity: pressed ? 0.7 : 1,
+            },
+            props.style,
+          ]}
+        />
+      ),
       tabBarIcon: ({ focused }) => {
         let iconName;
         let color = focused ? colors.orange : colors.white;

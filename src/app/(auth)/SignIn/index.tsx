@@ -46,11 +46,7 @@ export default function SignIn(){
       <ScrollView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.boxTitle}>
-            <BackButton 
-              iconName='arrow-left'
-              color={colors.black}
-              size={30}
-            />
+            <BackButton />
             <Text style={styles.title}>Sign in!</Text>
           </View>
 

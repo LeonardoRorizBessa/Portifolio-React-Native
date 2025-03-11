@@ -37,7 +37,7 @@ function MainLayout() {
         barStyle="light-content"
         backgroundColor={colors.black}
       />
-      <Stack screenOptions={{ headerShown: false }}>
+      <Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
         <Stack.Screen name='index' />
         <Stack.Screen name='(auth)/Welcome/index' />
         <Stack.Screen name='(auth)/SignIn/index' />

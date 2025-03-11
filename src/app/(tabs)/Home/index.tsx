@@ -22,37 +22,37 @@ import TimerImage from '@/assets/timer.png'
 const projects = [
   { 
     id: '1', 
-    name: 'Cooking App', 
+    name: 'Cooking', 
     route: '/(projects)/Cooking',
     image: CookingImage,
   },
   { 
     id: '2', 
-    name: 'Timer App', 
+    name: 'Timer', 
     route: '/(projects)/Timer',
     image: TimerImage,
   },
   { 
     id: '3', 
-    name: 'Notes App', 
+    name: 'Notes', 
     route: '/(projects)/Notes',
     image: NotesImage,
   },
   { 
     id: '4', 
-    name: 'Weather App', 
+    name: 'Weather', 
     route: '/(projects)/Weather',
     image: WeatherImage,
   },
   { 
     id: '5', 
-    name: 'To-Do List App', 
+    name: 'To-Do List', 
     route: '/(projects)/ToDoList',
     image: ToDoListImage,
   },
   { 
     id: '6', 
-    name: 'E-commerce App', 
+    name: 'E-commerce', 
     route: '/(projects)/Ecommerce',
     image: EcommerceImage,
   },
@@ -77,7 +77,7 @@ export default function Home() {
       </View>
 
       <View style={styles.boxWelcome}>
-        <Text style={styles.welcomeText}>Olá, {user?.user_metadata?.name}</Text>
+        <Text style={styles.welcomeText}>Hello, {user?.user_metadata?.name}</Text>
       </View>
 
       <View style={styles.boxProjects}>

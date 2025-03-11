@@ -45,7 +45,7 @@ export default function SignUp(){
     }
 
     setLoading(false)
-    router.replace('/(auth)/Welcome')
+    router.push('/(auth)/Welcome')
   }
 
   return (
@@ -53,11 +53,7 @@ export default function SignUp(){
       <ScrollView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.boxTitle}>
-            <BackButton 
-              iconName='arrow-left'
-              color={colors.black}
-              size={30}
-            />
+            <BackButton />
             <Text style={styles.title}>Sign Up!</Text>
           </View>
 

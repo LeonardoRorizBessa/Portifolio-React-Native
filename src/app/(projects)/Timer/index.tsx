@@ -6,12 +6,16 @@ import {
   Dimensions,
 } from 'react-native';
 import { colors } from '@/styles/colors'
+import { BackButton } from '@/components/BackButton/BackButton';
 
 const { width, height } = Dimensions.get('window')
 
 export default function Timer() {
   return (
     <View style={styles.container}>
+      <View>
+        <BackButton />
+      </View>
       <Text style={styles.title}>Timer App</Text>
     </View>
   );

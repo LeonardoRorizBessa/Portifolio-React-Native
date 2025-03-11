@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { variants } from './variants';
-import { colors } from '@/styles/colors';
 
 interface Props {
   title: string;
@@ -61,7 +60,7 @@ export function Button({
 const styles = StyleSheet.create({
   button: {
     padding: 16,
-    borderRadius: 24,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',

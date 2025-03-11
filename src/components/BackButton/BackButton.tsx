@@ -9,15 +9,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '@/styles/colors';
 
 interface Props {
-  iconName: keyof typeof MaterialCommunityIcons.glyphMap;
-  size: number;
-  color: string;
+  iconName?: keyof typeof MaterialCommunityIcons.glyphMap;
+  size?: number;
+  color?: string;
 }
 
 export function BackButton({ 
-  iconName,
-  size,
-  color,
+  iconName = 'arrow-left',
+  size = 30,
+  color = colors.black,
 }: Props){
   return (
     <View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   backButton: {
     backgroundColor: colors.orange,
     alignSelf: 'flex-start',
-    padding: 8,
+    padding: 4,
     borderRadius: 8,
     marginBottom: 8,
   },
