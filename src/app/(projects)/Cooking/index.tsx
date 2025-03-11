@@ -9,10 +9,10 @@ import { colors } from '@/styles/colors'
 
 const { width, height } = Dimensions.get('window')
 
-export default function Ecommerce() {
+export default function Cooking() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>E-commerce App</Text>
+      <Text style={styles.title}>Cooking App</Text>
     </View>
   );
 }

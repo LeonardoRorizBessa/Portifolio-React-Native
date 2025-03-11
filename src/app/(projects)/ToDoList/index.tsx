@@ -12,7 +12,7 @@ const { width, height } = Dimensions.get('window')
 export default function ToDoList() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>To-Do List</Text>
+      <Text style={styles.title}>To-Do List App</Text>
     </View>
   );
 }

@@ -6,30 +6,62 @@ import {
   StyleSheet,
   Dimensions,
   FlatList,
-  TouchableOpacity,
 } from 'react-native'
 import { colors } from '@/styles/colors'
 import Logo from '@/assets/logo.png'
 import User from '@/assets/user.png'
-import { useRouter } from 'expo-router';
+import { useAuth } from '@/contexts/AuthContext'
+import { Card } from '@/components/Card/Card'
+import ToDoListImage from '@/assets/list.png'
+import EcommerceImage from '@/assets/commerce.png'
+import CookingImage from '@/assets/cooking.png'
+import NotesImage from '@/assets/notes.png'
+import WeatherImage from '@/assets/weather.png'
+import TimerImage from '@/assets/timer.png'
 
 const projects = [
   { 
     id: '1', 
-    name: 'To-Do List', 
-    route: '/(projects)/ToDoList' 
+    name: 'Cooking App', 
+    route: '/(projects)/Cooking',
+    image: CookingImage,
   },
   { 
     id: '2', 
-    name: 'E-commerce', 
-    route: '/(projects)/Ecommerce' 
+    name: 'Timer App', 
+    route: '/(projects)/Timer',
+    image: TimerImage,
+  },
+  { 
+    id: '3', 
+    name: 'Notes App', 
+    route: '/(projects)/Notes',
+    image: NotesImage,
+  },
+  { 
+    id: '4', 
+    name: 'Weather App', 
+    route: '/(projects)/Weather',
+    image: WeatherImage,
+  },
+  { 
+    id: '5', 
+    name: 'To-Do List App', 
+    route: '/(projects)/ToDoList',
+    image: ToDoListImage,
+  },
+  { 
+    id: '6', 
+    name: 'E-commerce App', 
+    route: '/(projects)/Ecommerce',
+    image: EcommerceImage,
   },
 ]
 
 const { width, height } = Dimensions.get('window')
 
-export default function Home(){
-  const router = useRouter()
+export default function Home() {
+  const { user } = useAuth()
 
   return (
     <View style={styles.container}>
@@ -43,21 +75,21 @@ export default function Home(){
           style={styles.logo} 
         />
       </View>
+
       <View style={styles.boxWelcome}>
-        <Text style={styles.welcomeText}>Olá, Leonardo</Text>
+        <Text style={styles.welcomeText}>Olá, {user?.user_metadata?.name}</Text>
       </View>
+
       <View style={styles.boxProjects}>
         <FlatList 
           data={projects}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity 
-              style={styles.card} 
-              activeOpacity={0.8}
-              onPress={() => router.push(item.route as any)}
-            >
-              <Text style={styles.itemsTitle}>{item.name}</Text>
-            </TouchableOpacity>
+            <Card
+              name={item.name} 
+              route={item.route} 
+              image={item.image} 
+            />
           )}
         />
       </View>
@@ -99,17 +131,5 @@ const styles = StyleSheet.create({
   // Box Projects
   boxProjects: {
     flex: 1,
-  },
-  card: {
-    backgroundColor: colors.white,
-    padding: 16,
-    marginVertical: 8,
-    borderRadius: 10,
-  },
-  itemsTitle: {
-    fontSize: 18,
-    color: colors.black,
-    textAlign: 'center',
-    fontWeight: 'bold',
   },
 })

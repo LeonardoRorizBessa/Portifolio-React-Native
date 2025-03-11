@@ -64,8 +64,8 @@ export default function SignUp(){
           <View style={styles.boxSignUp}>
             <View style={styles.boxForm}>
               <Input 
-                label='Full Name' 
-                placeHolder='Full Name' 
+                label='Name' 
+                placeHolder='Name' 
                 iconName='account'
                 value={name}
                 onChangeText={setName}

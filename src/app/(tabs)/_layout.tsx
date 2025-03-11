@@ -6,10 +6,9 @@ import { colors } from '@/styles/colors'
 
 const { width, height } = Dimensions.get('window')
 
-
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{
+    <Tabs screenOptions={({ route }) => ({
       headerShown: false,
       tabBarShowLabel: false,
       tabBarStyle: {
@@ -18,7 +17,7 @@ export default function TabsLayout() {
         borderColor: colors.black,
         shadowColor: colors.white,
         shadowOffset: { width: 0, height: -5 },
-        shadowOpacity: 0.5,
+        shadowOpacity: 0.9,
         shadowRadius: 10,
         elevation: 10,
       },
@@ -26,31 +25,21 @@ export default function TabsLayout() {
         alignItems: 'center',
         justifyContent: 'center',
       },
-    }}>
-      <Tabs.Screen 
-        name='Home/index' 
-        options={{ 
-          tabBarIcon: () => (
-            <MaterialCommunityIcons 
-              name="home" 
-              color={colors.orange} 
-              size={30} 
-            />
-          ),
-        }} 
-      />
-      <Tabs.Screen 
-        name='Settings/index' 
-        options={{ 
-          tabBarIcon: () => (
-            <MaterialCommunityIcons 
-              name="cog" 
-              color={colors.orange} 
-              size={30}
-            />
-          ),
-        }} 
-      />
+      tabBarIcon: ({ focused }) => {
+        let iconName;
+        let color = focused ? colors.orange : colors.white;
+
+        if (route.name === 'Home/index') {
+          iconName = 'home';
+        } else if (route.name === 'Settings/index') {
+          iconName = 'cog';
+        }
+
+        return <MaterialCommunityIcons name={iconName as any} color={color} size={30} />;
+      },
+    })}>
+      <Tabs.Screen name='Home/index' />
+      <Tabs.Screen name='Settings/index' />
     </Tabs>
   )
 }
