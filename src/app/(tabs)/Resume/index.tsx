@@ -1,25 +1,23 @@
-import React from 'react';
+import React from 'react'
 import { 
   View, 
-  Text, 
+  Text,
   StyleSheet,
   Dimensions,
-} from 'react-native';
+} from 'react-native'
 import { colors } from '@/styles/colors'
-import { HeaderApps } from '@/components/HeaderApps/HeaderApps';
 
 const { width, height } = Dimensions.get('window')
 
-export default function Weather() {
+export default function Resume(){
+
   return (
     <View style={styles.container}>
-      <HeaderApps 
-        title={'Weather App'}
-        icon={true}
-        description='Weather'
-      />
+      <View style={styles.boxTitle}>
+        <Text style={styles.title}>Resume</Text>
+      </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -31,4 +29,13 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: colors.black,
   },
-});
+  // Box Title
+  boxTitle: {
+    marginBottom: 16,
+  },
+  title: {
+    color: colors.white,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+})

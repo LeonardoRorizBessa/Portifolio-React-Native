@@ -6,12 +6,14 @@ import {
   StyleSheet,
   Dimensions,
   FlatList,
+  Pressable,
 } from 'react-native'
 import { colors } from '@/styles/colors'
 import Logo from '@/assets/logo.png'
 import User from '@/assets/user.png'
 import { useAuth } from '@/contexts/AuthContext'
 import { Card } from '@/components/Card/Card'
+import { useRouter } from 'expo-router'
 import ToDoListImage from '@/assets/list.png'
 import EcommerceImage from '@/assets/commerce.png'
 import CookingImage from '@/assets/cooking.png'
@@ -62,6 +64,7 @@ const { width, height } = Dimensions.get('window')
 
 export default function Home() {
   const { user } = useAuth()
+  const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -70,14 +73,16 @@ export default function Home() {
           source={Logo} 
           style={styles.logo} 
         />
-        <Image 
-          source={User} 
-          style={styles.logo} 
-        />
+        <Pressable onPress={() => router.push('/(tabs)/Settings')}>
+          <Image 
+            source={User} 
+            style={styles.logo} 
+          />
+        </Pressable>
       </View>
 
       <View style={styles.boxWelcome}>
-        <Text style={styles.welcomeText}>Hello, {user?.user_metadata?.name}</Text>
+        <Text style={styles.welcomeText}>Olá, {user?.user_metadata?.name}</Text>
       </View>
 
       <View style={styles.boxProjects}>

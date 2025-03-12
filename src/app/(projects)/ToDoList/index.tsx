@@ -6,17 +6,18 @@ import {
   Dimensions,
 } from 'react-native';
 import { colors } from '@/styles/colors'
-import { BackButton } from '@/components/BackButton/BackButton';
+import { HeaderApps } from '@/components/HeaderApps/HeaderApps';
 
 const { width, height } = Dimensions.get('window')
 
 export default function ToDoList() {
   return (
     <View style={styles.container}>
-      <View>
-        <BackButton />
-      </View>
-      <Text style={styles.title}>To-Do List App</Text>
+      <HeaderApps 
+        title={'To-Do List App'}
+        icon={true}
+        description='ToDoList'
+      />
     </View>
   );
 }
@@ -29,10 +30,5 @@ const styles = StyleSheet.create({
     height: height,
     padding: 16,
     backgroundColor: colors.black,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
   },
 });

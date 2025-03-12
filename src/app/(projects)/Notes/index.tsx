@@ -6,17 +6,18 @@ import {
   Dimensions,
 } from 'react-native';
 import { colors } from '@/styles/colors'
-import { BackButton } from '@/components/BackButton/BackButton';
+import { HeaderApps } from '@/components/HeaderApps/HeaderApps';
 
 const { width, height } = Dimensions.get('window')
 
 export default function Notes() {
   return (
     <View style={styles.container}>
-      <View>
-        <BackButton />
-      </View>
-      <Text style={styles.title}>Notes App</Text>
+      <HeaderApps 
+        title={'Notes App'}
+        icon={true}
+        description='Notes'
+      />
     </View>
   );
 }
@@ -29,10 +30,5 @@ const styles = StyleSheet.create({
     height: height,
     padding: 16,
     backgroundColor: colors.black,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
   },
 });

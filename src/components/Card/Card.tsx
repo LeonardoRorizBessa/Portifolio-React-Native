@@ -8,13 +8,17 @@ import {
 import { useRouter } from 'expo-router'
 import { colors } from '@/styles/colors'
 
-interface CardProps {
+interface Props {
   name: string;
   route: string;
   image: any;
 }
 
-export function Card({ name, route, image }: CardProps) {
+export function Card({ 
+  name, 
+  route, 
+  image,
+}: Props) {
   const router = useRouter()
 
   return (

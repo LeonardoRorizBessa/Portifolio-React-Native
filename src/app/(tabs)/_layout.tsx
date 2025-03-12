@@ -45,6 +45,8 @@ export default function TabsLayout() {
 
         if (route.name === 'Home/index') {
           iconName = 'home';
+        } else if (route.name === 'Resume/index') {
+          iconName = 'account';
         } else if (route.name === 'Settings/index') {
           iconName = 'cog';
         }
@@ -53,6 +55,7 @@ export default function TabsLayout() {
       },
     })}>
       <Tabs.Screen name='Home/index' />
+      <Tabs.Screen name='Resume/index' />
       <Tabs.Screen name='Settings/index' />
     </Tabs>
   )
