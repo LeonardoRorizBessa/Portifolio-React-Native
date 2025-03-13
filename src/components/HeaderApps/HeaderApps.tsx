@@ -11,7 +11,7 @@ import { colors } from '@/styles/colors'
 import { BackButton } from '@/components/BackButton/BackButton'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 interface Props {
   title: string;
@@ -29,7 +29,7 @@ export function HeaderApps({
   const getDescription = () => {
     switch (description) {
       case 'Cooking':
-        return 'Descrição Cooking App';
+        return 'O Cooking App é um aplicativo que ajuda os usuários a encontrar e seguir receitas de forma simples e intuitiva. Ele apresenta uma lista de pratos, cada um com sua imagem, ingredientes e modo de preparo detalhado. Ao selecionar uma receita, o usuário pode visualizar as informações completas sobre como preparar o prato.';
       case 'Timer':
         return 'Descrição Timer App';
       case 'Notes':
@@ -69,14 +69,15 @@ export function HeaderApps({
       >
         <Pressable style={styles.modalContainer} onPress={() => setModalVisible(false)}>
           <Pressable style={styles.modalView} onPress={(e) => e.stopPropagation()}>
+            <Pressable style={styles.closeButton} onPress={() => setModalVisible(false)}>
+              <MaterialCommunityIcons 
+                name="close" 
+                size={24} 
+                color={colors.black} 
+              />
+            </Pressable>
             <Text style={styles.modalText}>Como funciona!</Text>
             <Text style={styles.modalDescription}>{getDescription()}</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.textClose}>Fechar</Text>
-            </Pressable>
           </Pressable>
         </Pressable>
       </Modal>
@@ -118,28 +119,20 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
   modalText: {
     marginBottom: 16,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   modalDescription: {
     marginBottom: 16,
     textAlign: 'center',
-    fontSize: 12,
-  },
-  button: {
-    borderRadius: 10,
-    padding: 12,
-    elevation: 3,
-  },
-  buttonClose: {
-    backgroundColor: colors.orange,
-  },
-  textClose: {
-    color: colors.white,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontSize: 16,
   },
 })
