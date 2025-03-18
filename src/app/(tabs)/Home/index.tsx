@@ -8,20 +8,20 @@ import {
   FlatList,
   Pressable,
 } from 'react-native'
-import { colors } from '@/styles/colors'
-import Logo from '@/assets/logo.png'
-import User from '@/assets/user.png'
+import { colors, fontSize } from '@/styles/global'
 import { useAuth } from '@/contexts/AuthContext'
 import { ProjectsCard } from '@/components/ProjectsCard/ProjectsCard'
 import { useRouter } from 'expo-router'
-import ToDoListImage from '@/assets/list.png'
-import EcommerceImage from '@/assets/commerce.png'
-import CookingImage from '@/assets/cooking.png'
-import NotesImage from '@/assets/notes.png'
-import WeatherImage from '@/assets/weather.png'
-import TimerImage from '@/assets/timer.png'
+import Logo from '@/assets/logo.png'
+import User from '@/assets/user.png'
+import ToDoListImage from '@/assets/projectsImgs/list.png'
+import EcommerceImage from '@/assets/projectsImgs/commerce.png'
+import CookingImage from '@/assets/projectsImgs/cooking.png'
+import NotesImage from '@/assets/projectsImgs/notes.png'
+import WeatherImage from '@/assets/projectsImgs/weather.png'
+import TimerImage from '@/assets/projectsImgs/timer.png'
 
-const projects = [
+const DATA = [
   { 
     id: '1', 
     name: 'Cooking', 
@@ -80,14 +80,12 @@ export default function Home() {
           />
         </Pressable>
       </View>
-
       <View style={styles.boxWelcome}>
         <Text style={styles.welcomeText}>Olá, {user?.user_metadata?.name}</Text>
       </View>
-
       <View style={styles.boxProjects}>
         <FlatList 
-          data={projects}
+          data={DATA}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
@@ -131,7 +129,7 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     color: colors.white,
-    fontSize: 18,
+    fontSize: fontSize.large,
     fontWeight: 'bold',
   },
   // Box Projects

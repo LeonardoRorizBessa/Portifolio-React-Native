@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "teste",
-    "slug": "teste",
+    "name": "Portfolio React Native",
+    "slug": "Portfolio React Native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

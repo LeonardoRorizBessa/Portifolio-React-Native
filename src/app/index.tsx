@@ -3,7 +3,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native'
-import { colors } from '@/styles/colors'
+import { colors } from '@/styles/global'
 
 export default function Loading(){
   <View style={styles.container}>

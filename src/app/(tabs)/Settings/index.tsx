@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
-import { colors } from '@/styles/colors'
+import { colors, fontSize } from '@/styles/global'
 import { SettingsOptions } from '@/components/SettingsOptions/SettingsOptions'
 
 const { width, height } = Dimensions.get('window')
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: fontSize.large,
     fontWeight: 'bold',
   },
 })

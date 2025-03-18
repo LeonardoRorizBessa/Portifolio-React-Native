@@ -9,7 +9,7 @@ import {
   Pressable,
   Dimensions,
 } from 'react-native'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const { width } = Dimensions.get('window')
@@ -46,9 +46,9 @@ export function CookingCard({
           <Text style={styles.itemsTitle}>{title}</Text>
         </View>
       </TouchableOpacity>
-
       <Modal
-        animationType='slide'
+        animationType='fade'
+        statusBarTranslucent={true}
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   card: {
     position: 'relative',
     marginVertical: 8,
-    borderRadius: 12, 
+    borderRadius: radius.small, 
     overflow: 'hidden',
     width: '100%',
     height: 160,
@@ -110,11 +110,11 @@ const styles = StyleSheet.create({
     left: 10,
     paddingVertical: 6,
     paddingHorizontal: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 6,
+    backgroundColor: colors.black50,
+    borderRadius: radius.xxs,
   },
   itemsTitle: {
-    fontSize: 18,
+    fontSize: fontSize.large,
     color: colors.white,
     fontWeight: 'bold',
   },
@@ -123,21 +123,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: colors.black50,
   },
   modalView: {
-    width: width * 0.9,
+    width: width * 0.85,
     backgroundColor: colors.white,
-    borderRadius: 16,
+    borderRadius: radius.medium,
     alignItems: 'center',
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
   },
   // Box Image
   boxImage: {
@@ -148,15 +140,15 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     resizeMode: 'cover',
-    borderTopRightRadius: 16,
-    borderTopLeftRadius: 16,
+    borderTopRightRadius: radius.medium,
+    borderTopLeftRadius: radius.medium,
   },
   closeButton: {
     position: 'absolute',
     top: 10,
     right: 10,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 12,
+    backgroundColor: colors.black50,
+    borderRadius: radius.small,
     padding: 4,
   },
   modalBoxTitle: {
@@ -165,11 +157,11 @@ const styles = StyleSheet.create({
     left: 10,
     paddingVertical: 6,
     paddingHorizontal: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 6,
+    backgroundColor: colors.black50,
+    borderRadius: radius.xxs,
   },
   modalItemsTitle: {
-    fontSize: 18,
+    fontSize: fontSize.large,
     color: colors.white,
     fontWeight: 'bold',
   },
@@ -179,7 +171,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   modalDescription: {
-    fontSize: 16,
+    fontSize: fontSize.medium,
     textAlign: 'left',
   },
 })

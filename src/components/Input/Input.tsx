@@ -5,7 +5,7 @@ import {
   StyleSheet, 
   Text 
 } from 'react-native'
-import { colors } from '../../styles/colors'
+import { colors, fontSize, radius } from '@/styles/global';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface Props {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   labelInput: {
-    fontSize: 14,
+    fontSize: fontSize.small,
     color: colors.orange,
   },
   viewInput: {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderBottomWidth: 1,
-    fontSize: 14,
+    fontSize: fontSize.small,
     borderColor: colors.darkGray,
     color: colors.darkGray,
   },

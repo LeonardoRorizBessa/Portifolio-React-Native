@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { useRouter } from 'expo-router'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
     marginVertical: 4,
-    borderRadius: 10,
+    borderRadius: radius.xs,
   },
   boxText: {
     flexDirection: 'row',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   itemsTitle: {
-    fontSize: 16,
+    fontSize: fontSize.medium,
     color: colors.white,
   },
 })

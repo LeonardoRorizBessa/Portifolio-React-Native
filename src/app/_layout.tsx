@@ -5,7 +5,7 @@ import {
 import { router, Stack } from 'expo-router'
 import { AuthProvider, useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
-import { colors } from '@/styles/colors'
+import { colors } from '@/styles/global'
 
 export default function RootLayout() {
   return(

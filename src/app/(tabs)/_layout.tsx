@@ -5,9 +5,9 @@ import {
 } from 'react-native'
 import { Tabs } from 'expo-router'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { colors } from '@/styles/colors'
+import { colors } from '@/styles/global'
 
-const { width, height } = Dimensions.get('window')
+const { height } = Dimensions.get('window')
 
 export default function TabsLayout() {
   return (

@@ -7,7 +7,7 @@ import {
   Dimensions,
 } from 'react-native'
 import { Button } from '@/components/Button/Button'
-import { colors } from '@/styles/colors'
+import { colors, fontSize } from '@/styles/global'
 import Logo from '@/assets/logo.png'
 import { SocialButton } from '@/components/SocialButton/SocialButton'
 
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   textWelcome: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 24,
+    fontSize: fontSize.xl,
   },
   // Box Buttons
   boxButtons: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   textSocial: {
     color: colors.white,
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: fontSize.small,
   },
   boxMedias: {
     flexDirection: 'row',

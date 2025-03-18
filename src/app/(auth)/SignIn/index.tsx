@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native'
 import { Link, useRouter } from 'expo-router'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
 import { BackButton } from '@/components/BackButton/BackButton'
@@ -49,7 +49,6 @@ export default function SignIn(){
             <BackButton />
             <Text style={styles.title}>Sign in!</Text>
           </View>
-
           <View style={styles.boxSignIn}>
             <View style={styles.boxForm}>
               <Input 
@@ -69,7 +68,6 @@ export default function SignIn(){
               />
               <Text style={styles.forgotPassword}>Forgot password?</Text>
             </View>
-
             <View style={styles.boxButton}>
               <Button 
                 title="Sign In"
@@ -78,7 +76,6 @@ export default function SignIn(){
                 loading={loading}
               />
             </View>
-
             <View style={styles.boxHasAccount}>
               <Text style={styles.textHasAccount}>Don't have account?</Text>
               <Link href='/(auth)/SignUp' style={styles.linkSignUp}>
@@ -110,7 +107,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 32,
+    fontSize: fontSize.xxl,
   },
   // Box Sign In
   boxSignIn: {
@@ -120,8 +117,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 32,
     paddingBottom: 16,
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
+    borderTopRightRadius: radius.xxl,
+    borderTopLeftRadius: radius.xxl,
   },
   // Box Form
   boxForm: {
@@ -149,7 +146,7 @@ const styles = StyleSheet.create({
   textHasAccount: {
     color: colors.darkGray,
     alignSelf: 'flex-end',
-    fontSize: 12,
+    fontSize: fontSize.xs,
   },
   linkSignUp: {
     alignSelf: 'flex-end',
@@ -157,6 +154,6 @@ const styles = StyleSheet.create({
   textSignUp: {
     color: colors.orange,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: fontSize.medium,
   },
 })

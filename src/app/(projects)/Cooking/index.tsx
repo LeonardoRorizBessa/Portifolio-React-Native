@@ -5,7 +5,7 @@ import {
   Dimensions,
   FlatList,
 } from 'react-native'
-import { colors } from '@/styles/colors'
+import { colors } from '@/styles/global'
 import { HeaderApps } from '@/components/HeaderApps/HeaderApps'
 import { CookingCard } from '@/components/CookingCard/CookingCard'
 import BurguerImage from '@/assets/cookingImgs/burguer.jpg'
@@ -15,7 +15,7 @@ import ParmigianaImage from '@/assets/cookingImgs/parmegiana.jpg'
 import PaellaImage from '@/assets/cookingImgs/paella.jpg'
 import LasagnaImage from '@/assets/cookingImgs/lasanha.jpg'
 
-const cookingCards = [
+const DATA = [
   { 
     id: '1', 
     title: 'Burguer',
@@ -72,7 +72,7 @@ export default function Cooking() {
       />
       <View style={styles.boxApp}>
         <FlatList 
-          data={cookingCards}
+          data={DATA}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (

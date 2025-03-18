@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native'
 import { Link, useRouter } from 'expo-router'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global'
 import { Input } from '@/components/Input/Input'
 import { Button } from '@/components/Button/Button'
 import { BackButton } from '@/components/BackButton/BackButton'
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 32,
+    fontSize: fontSize.xxl,
   },
   // Box Sign Up
   boxSignUp: {
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 32,
     paddingBottom: 16,
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
+    borderTopRightRadius: radius.xxl,
+    borderTopLeftRadius: radius.xxl,
   },
   // Box Form
   boxForm: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   textHasAccount: {
     color: colors.darkGray,
     alignSelf: 'flex-end',
-    fontSize: 12,
+    fontSize: fontSize.xs,
   },
   linkSignIn: {
     alignSelf: 'flex-end',
@@ -174,6 +174,6 @@ const styles = StyleSheet.create({
   textSignIn: {
     color: colors.orange,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: fontSize.medium,
   },
 })

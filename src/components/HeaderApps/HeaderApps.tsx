@@ -7,7 +7,7 @@ import {
   Pressable,
   Dimensions,
 } from 'react-native'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global'
 import { BackButton } from '@/components/BackButton/BackButton'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
@@ -44,7 +44,7 @@ export function HeaderApps({
         return 'Descrição do App';
     }
   }
-
+  
   return (
     <>
       <View style={styles.boxHeader}>
@@ -54,29 +54,34 @@ export function HeaderApps({
           <Pressable onPress={() => setModalVisible(true)}>
             <MaterialCommunityIcons 
               name='chat-question'
-              size={35}
+              size={32}
               color={colors.orange}
             />
           </Pressable>
         )}
       </View>
-
       <Modal
-        animationType='slide'
+        animationType='fade'
+        statusBarTranslucent={true}
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
         <Pressable style={styles.modalContainer} onPress={() => setModalVisible(false)}>
           <Pressable style={styles.modalView} onPress={(e) => e.stopPropagation()}>
-            <Pressable style={styles.closeButton} onPress={() => setModalVisible(false)}>
-              <MaterialCommunityIcons 
-                name="close" 
-                size={24} 
-                color={colors.black} 
-              />
-            </Pressable>
-            <Text style={styles.modalText}>Como funciona!</Text>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Como funciona!</Text>
+              <Pressable 
+                style={styles.closeButton} 
+                onPress={() => setModalVisible(false)}
+              >
+                <MaterialCommunityIcons 
+                  name="close" 
+                  size={24} 
+                  color={colors.black} 
+                />
+              </Pressable>
+            </View>
             <Text style={styles.modalDescription}>{getDescription()}</Text>
           </Pressable>
         </Pressable>
@@ -89,50 +94,47 @@ const styles = StyleSheet.create({
   // Box Header
   boxHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   title: {
-    fontSize: 24,
     fontWeight: 'bold',
+    fontSize: fontSize.large,
     color: colors.white,
   },
   // Modal
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    backgroundColor: colors.black50,
   },
   modalView: {
-    width: width * 0.8,
+    width: width * 0.85,
     backgroundColor: colors.white,
-    borderRadius: 16,
-    padding: 24,
+    borderRadius: radius.medium,
+    padding: 16,
+  },
+  // Modal Header
+  modalHeader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingBottom: 16,
+  },
+  modalTitle: {
+    fontWeight: 'bold',
+    fontSize: fontSize.large,
+    color: colors.black
   },
   closeButton: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
+    backgroundColor: colors.orange,
+    borderRadius: radius.small,
+    padding: 4,
   },
-  modalText: {
-    marginBottom: 16,
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
+  // Modal Body
   modalDescription: {
-    marginBottom: 16,
-    textAlign: 'center',
-    fontSize: 16,
+    fontSize: fontSize.small,
   },
 })

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { variants } from './variants';
+import { fontSize, radius } from '@/styles/global';
 
 interface Props {
   title: string;
@@ -60,13 +61,13 @@ export function Button({
 const styles = StyleSheet.create({
   button: {
     padding: 16,
-    borderRadius: 16,
+    borderRadius: radius.medium,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: fontSize.medium,
     textTransform: 'uppercase',
     fontWeight: 'bold',
     textAlign: 'center',

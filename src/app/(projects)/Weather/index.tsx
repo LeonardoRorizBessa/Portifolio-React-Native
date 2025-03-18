@@ -1,11 +1,10 @@
 import React from 'react';
 import { 
-  View, 
-  Text, 
+  View,
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import { colors } from '@/styles/colors'
+import { colors } from '@/styles/global'
 import { HeaderApps } from '@/components/HeaderApps/HeaderApps';
 
 const { width, height } = Dimensions.get('window')

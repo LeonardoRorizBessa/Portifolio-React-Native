@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { useRouter } from 'expo-router'
-import { colors } from '@/styles/colors'
+import { colors, fontSize, radius } from '@/styles/global';
 
 interface Props {
   name: string;
@@ -41,22 +41,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.white,
     padding: 16,
     marginVertical: 8,
-    borderRadius: 10,
-    shadowColor: colors.lightGray,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
-    elevation: 5,
+    borderRadius: radius.xs,
   },
   iconsList: {
     width: 30,
     height: 30,
   },
   itemsTitle: {
-    fontSize: 16,
+    fontSize: fontSize.medium,
     color: colors.black,
   },
 })
