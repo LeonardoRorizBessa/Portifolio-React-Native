@@ -12,7 +12,7 @@ import { colors } from '@/styles/colors'
 import Logo from '@/assets/logo.png'
 import User from '@/assets/user.png'
 import { useAuth } from '@/contexts/AuthContext'
-import { Card } from '@/components/Card/Card'
+import { ProjectsCard } from '@/components/ProjectsCard/ProjectsCard'
 import { useRouter } from 'expo-router'
 import ToDoListImage from '@/assets/list.png'
 import EcommerceImage from '@/assets/commerce.png'
@@ -91,7 +91,7 @@ export default function Home() {
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
-            <Card
+            <ProjectsCard
               name={item.name} 
               route={item.route} 
               image={item.image} 

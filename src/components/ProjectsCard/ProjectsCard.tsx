@@ -14,7 +14,7 @@ interface Props {
   image: any;
 }
 
-export function Card({ 
+export function ProjectsCard({ 
   name, 
   route, 
   image,

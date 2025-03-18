@@ -53,14 +53,23 @@ export function CookingCard({
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <Pressable style={styles.modalContainer} onPress={() => setModalVisible(false)}>
-          <Pressable style={styles.modalView} onPress={(e) => e.stopPropagation()}>
+        <Pressable 
+          style={styles.modalContainer} 
+          onPress={() => setModalVisible(false)}
+        >
+          <Pressable 
+            style={styles.modalView} 
+            onPress={(e) => e.stopPropagation()}
+          >
             <View style={styles.boxImage}>
               <Image 
                 source={image}
                 style={styles.modalImage}
               />
-              <Pressable style={styles.closeButton} onPress={() => setModalVisible(false)}>
+              <Pressable 
+                style={styles.closeButton} 
+                onPress={() => setModalVisible(false)}
+              >
                 <MaterialCommunityIcons 
                   name="close" 
                   size={24} 

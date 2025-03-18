@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width,
     height: height,
-    padding: 16,
+    paddingTop: 16,
+    paddingHorizontal: 16,
+    gap: 16,
     backgroundColor: colors.black,
   },
 });
