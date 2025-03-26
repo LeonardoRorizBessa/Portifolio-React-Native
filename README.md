@@ -1,5 +1,4 @@
 # Portfólio Mobile – React Native (Expo)
-
 ## Descrição:
 Este projeto é uma versão mobile do meu portfólio, desenvolvida com React Native e Expo, que reúne versões simplificadas de alguns dos meus projetos. A aplicação tem como objetivo demonstrar habilidades no desenvolvimento mobile, incluindo integração com APIs, CRUD e navegação eficiente.
 
@@ -26,14 +25,9 @@ Uma versão simplificada de uma loja virtual, com funcionalidades básicas de na
 O app já conta com um sistema de login funcional, utilizando o Supabase como banco de dados.
 
 ## Tecnologias e Bibliotecas Utilizadas:
-React Native e Expo: base do desenvolvimento mobile.
-
-Supabase: autenticação e gerenciamento de usuários.
-
-Expo Vector Icons: ícones leves e customizáveis.
-
-Expo Router: sistema de rotas eficiente e prático.
-
-Expo Status Bar: para personalização da barra de status.
-
-Outras bibliotecas para otimizar a navegação e a experiência do usuário.
+- React Native e Expo: base do desenvolvimento mobile.
+- Supabase: autenticação e gerenciamento de usuários.
+- Expo Vector Icons: ícones leves e customizáveis.
+- Expo Router: sistema de rotas eficiente e prático.
+- Expo Status Bar: para personalização da barra de status.
+- Outras bibliotecas para otimizar a navegação e a experiência do usuário.
